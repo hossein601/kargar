@@ -28,5 +28,4 @@ for i in range(rows1):
 
 for item in result:
     print(item)
-for item in result:
-    print(item)
+
