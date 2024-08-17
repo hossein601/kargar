@@ -1,7 +1,7 @@
 class OrderManagement:
     def __init__(self):
         self.orders = []
-        self.order_id_counter = 1
+        self.counter_id = 1
 
     def place_order(self, customer_name, items, menu):
         order_items = []
@@ -14,20 +14,20 @@ class OrderManagement:
                 total_price += menu_item['price']
 
         order = {
-            "order_id": self.order_id_counter,
+            "order_id": self.counter_id,
             "customer_name": customer_name,
             "items": order_items,
             "total_price": total_price
         }
         self.orders.append(order)
-        self.order_id_counter += 1
+        self.counter_id += 1
 
         return f"Order placed for {customer_name}. Order ID: {order['order_id']}"
 
     def show_all_orders(self):
         orders = ""
         for order in self.orders:
-            orders += f"Order ID: {order['order_id']}, Customer: {order['customer_name']}, Total: ${order['total_price']}\n"
+            orders += f"Order ID: {order['order_id']}, Customer: {order['customer_name']}, Total: ${order['total_price']:.2f}\n"
         return orders
 
     def generate_receipt(self, order_id):

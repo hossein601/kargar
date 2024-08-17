@@ -9,5 +9,8 @@ class StaffManagement:
     def show_all_staff(self):
         staff = ""
         for member in self.persons:
-            staff += f"{member['name']} - {member['location']}\n"
+            staff += f"{member['name']} _ {member['location']}\n"
         return staff
+
+    def output(self, name, location):
+        self.persons.remove({"name": name, "location": location})
